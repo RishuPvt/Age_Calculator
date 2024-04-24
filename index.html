@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Age Calculator</title>
+                                             <!-- Css section -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    h2{
+        display: flex;
+        color: yellowgreen;
+        justify-content: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="date"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    #result {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+                                          <!-- HTML section -->
+
+                                          <div class="container">
+    <h2>Age Calculator</h2>
+    <input type="date" id="birthDate" placeholder="Enter your birthdate">
+    <button onclick="calculateAge()">Calculate Age</button>
+    <div id="result"></div>
+</div>
+                                          <!-- JavaScript section -->
+
+<script>
+    function calculateAge() {
+    let birthDate = new Date(document.getElementById('birthDate').value);
+    let today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    let month = today.getMonth() - birthDate.getMonth();
+         if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        } 
+        document.getElementById('result').innerHTML = "Your age is: " + age;
+    }
+</script>
+</body>
+</html>
